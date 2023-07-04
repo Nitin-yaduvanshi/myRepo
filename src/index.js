@@ -1,0 +1,10 @@
+const config = require('./config')
+const express = require('express')
+const router = require('./rest-services')
+const run = require('./run-migration')
+run()
+const app = express()
+
+app.use(express.json(),express.static('public'))
+app.use('/',router)
+app.listen(3000)
